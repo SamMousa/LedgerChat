@@ -1,0 +1,11 @@
+## Interface: 11305
+## Title: LedgerChat
+## Author: Sam Mousa
+## Version: {VERSION}
+##SavedVariables: LedgerChatData
+libs\LibStub\LibStub.lua
+libs\LibDeflate\LibDeflate.lua
+libs\LibSerialize\LibSerialize.lua
+libs\LibScrollingTable\Core.lua
+src\TextMessageEntry.lua
+LedgerChat.lua
