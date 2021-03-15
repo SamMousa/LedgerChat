@@ -89,13 +89,10 @@ local function launch()
 
     local function registerReceiveHandler(callback)
         print("Registering handler")
-        AceComm:RegisterComm('ledgertest', function(prefix, text, distribution, sender)
+        AceComm:RegisterComm('LedgerChat', function(prefix, text, distribution, sender)
             local result, data = LibSerialize:Deserialize(
                 LibDeflate:DecompressDeflate(LibDeflate:DecodeForWoWAddonChannel(text)))
             if result then
-                if distribution == "WHISPER" then
-                    distribution = "GUILD"
-                end
                 callback(data, distribution, sender)
             else
                 print("Failed to deserialize data", data)
@@ -104,20 +101,12 @@ local function launch()
     end
 
     local function send(data, distribution, target, prio, callbackFn, callbackArg)
-        if distribution == "GUILD" then
-            distribution = "WHISPER"
-            if UnitName("player") == "Awesam" then
-                target = "Samdev"
-            else
-                target = "Awesam"
-            end
-        end
         local serialized = LibSerialize:Serialize(data)
 --        print("Sending")
 --        Util.DumpTable(data)
         local compressed = LibDeflate:EncodeForWoWAddonChannel(LibDeflate:CompressDeflate(serialized))
 
-        AceComm:SendCommMessage('ledgertest', compressed, distribution, target, prio, callbackFn, callbackArg)
+        AceComm:SendCommMessage('LedgerChat', compressed, distribution, target, prio, callbackFn, callbackArg)
     end
 
     ledger = LibStub("EventSourcing/LedgerFactory").createLedger(LedgerChatData, send, registerReceiveHandler, function() return true end)
@@ -135,7 +124,7 @@ local function launch()
     end)
 
     if (#LedgerChatData == 0) then
-        createTestData()
+        --createTestData()
     end
 
 
@@ -212,7 +201,7 @@ else
     local frame = CreateFrame("Frame")
     frame:RegisterEvent("ADDON_LOADED")
     frame:SetScript("OnEvent", function(data, event, addon)
-        if addon == 'LuaDatabase'then
+        if addon == 'LedgerChat'then
             LedgerChatData = LedgerChatData or {}
             launch()
         end

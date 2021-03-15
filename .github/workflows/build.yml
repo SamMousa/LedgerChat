@@ -19,9 +19,11 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@master
         with:
           find: "{VERSION}"
-          include: LuaDatabase.toc
+          include: LedgerChat.toc
           replace: "${{ env.RELEASE_VERSION }}"
-      - run: zip -r LedgerChat.zip . --exclude="*.git*"
+      - run: mkdir LedgerChat
+      - run: mv !(LedgerChat) LedgerChat
+      - run: zip -r LedgerChat.zip LedgerChat
       - name: Create GitHub release
         uses: Roang-zero1/github-create-release-action@master
         with:

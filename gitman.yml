@@ -1,5 +1,11 @@
 location: libs
 sources:
+  - repo: https://github.com/kaytotes/LibStub
+    name: LibStub
+    rev: master
+    type: git
+    sparse_paths:
+      - "LibStub.lua"
   - repo: https://github.com/rossnichols/LibSerialize
     name: LibSerialize
     rev: master

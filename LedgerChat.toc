@@ -6,6 +6,7 @@
 libs\LibStub\LibStub.lua
 libs\LibDeflate\LibDeflate.lua
 libs\LibSerialize\LibSerialize.lua
+libs\LibEventSourcing\LibEventSourcing.xml
 libs\LibScrollingTable\Core.lua
 src\TextMessageEntry.lua
 LedgerChat.lua
