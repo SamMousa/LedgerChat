@@ -23,7 +23,7 @@ jobs:
           replace: "${{ env.RELEASE_VERSION }}"
       - run: mkdir LedgerChat
       - run: mv `ls | grep -v '^LedgerChat$'` LedgerChat
-      - run: zip -r LedgerChat.zip LedgerChat
+      - run: zip -r LedgerChat.zip LedgerChat -x '*.git*'
       - name: Create GitHub release
         uses: Roang-zero1/github-create-release-action@master
         with:
