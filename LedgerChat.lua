@@ -77,13 +77,12 @@ local function launch()
         end)
     end
 
-    local function send(data, distribution, target, prio, callbackFn, callbackArg)
+    local function send(data, distribution, target, callbackFn, callbackArg)
         local serialized = LibSerialize:Serialize(data)
---        print("Sending")
---        Util.DumpTable(data)
+
         local compressed = LibDeflate:EncodeForWoWAddonChannel(LibDeflate:CompressDeflate(serialized))
 
-        AceComm:SendCommMessage('LedgerChat', compressed, distribution, target, prio, callbackFn, callbackArg)
+        AceComm:SendCommMessage('LedgerChat', compressed, distribution, target, "BULK", callbackFn, callbackArg)
     end
 
     ledger = LibStub("EventSourcing/LedgerFactory").createLedger(LedgerChatData, send, registerReceiveHandler, function() return true end)
