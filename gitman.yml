@@ -11,7 +11,7 @@ sources:
     rev: master
     type: git
     sparse_paths:
-      -
+      - "/LibSerialize.lua"
     link:
     links:
       -
@@ -22,7 +22,7 @@ sources:
     rev: master
     type: git
     sparse_paths:
-      -
+      - "/LibDeflate.lua"
     link:
     links:
       -
@@ -44,7 +44,7 @@ sources:
     rev: master
     type: git
     sparse_paths:
-      -
+      - "/Core.lua"
     link:
     links:
       -
