@@ -22,8 +22,7 @@ jobs:
           include: LedgerChat.toc
           replace: "${{ env.RELEASE_VERSION }}"
       - run: mkdir LedgerChat
-      - run: shopt -s extglob
-      - run: mv !(LedgerChat) LedgerChat
+      - run: shopt -s extglob; mv !(LedgerChat) LedgerChat
       - run: zip -r LedgerChat.zip LedgerChat
       - name: Create GitHub release
         uses: Roang-zero1/github-create-release-action@master
