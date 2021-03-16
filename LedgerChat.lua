@@ -45,29 +45,6 @@ local function LibStubWithStub(library, fallback)
 end
 local ledger
 
-local function createTestData()
-    ledger.reset()
-    Profile:start('Creating data')
-
-    for i = 1, 1 * 400 do
-
-        local entry = TextMessageEntry.create(string.format("Message %d", i))
-        -- today minus 4 weeks
-        entry.t = Util.time() - math.random(604800 * 4)
-        local copy = {}
-        for k, v in pairs(entry) do
-            copy[k] = v
-        end
-        ledger.submitEntry(copy)
-        if i % 1000 == 0 then
-            print('.')
-        end
-    end
-    print('done')
-
-    Profile:stop('Creating data')
-end
-
 local function launch()
     local AceComm = LibStubWithStub("AceComm-3.0", {
         RegisterComm = function()  end,
@@ -122,11 +99,6 @@ local function launch()
             entry:message(),
         })
     end)
-
-    if (#LedgerChatData == 0) then
-        --createTestData()
-    end
-
 
     ledger.addStateRestartListener(function()
         Util.wipe(state.messages)
