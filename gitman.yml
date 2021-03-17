@@ -91,7 +91,7 @@ sources_locked:
       -
   - repo: https://github.com/SamMousa/lua-eventsourcing
     name: LibEventSourcing
-    rev: c8cc9b7050c0d6b23374463d5ae361482965cdc5
+    rev: 3117c0cddb9acb2626a19e4ba204e62a14ec68c7
     type: git
     sparse_paths:
       -
