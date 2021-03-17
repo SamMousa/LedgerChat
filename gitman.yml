@@ -5,13 +5,18 @@ sources:
     rev: master
     type: git
     sparse_paths:
-      - "LibStub.lua"
+      - LibStub.lua
+    link:
+    links:
+      -
+    scripts:
+      -
   - repo: https://github.com/rossnichols/LibSerialize
     name: LibSerialize
     rev: master
     type: git
     sparse_paths:
-      - "/LibSerialize.lua"
+      - /LibSerialize.lua
     link:
     links:
       -
@@ -22,7 +27,7 @@ sources:
     rev: master
     type: git
     sparse_paths:
-      - "/LibDeflate.lua"
+      - /LibDeflate.lua
     link:
     links:
       -
@@ -44,13 +49,68 @@ sources:
     rev: master
     type: git
     sparse_paths:
-      - "/Core.lua"
+      - /Core.lua
     link:
     links:
       -
     scripts:
       -
 sources_locked:
+  - repo: https://github.com/kaytotes/LibStub
+    name: LibStub
+    rev: 2d5bb9513f98af06cb85d742b94afe05ff2bee6b
+    type: git
+    sparse_paths:
+      - LibStub.lua
+    link:
+    links:
+      -
+    scripts:
+      -
+  - repo: https://github.com/rossnichols/LibSerialize
+    name: LibSerialize
+    rev: 4389c2fa4f46233d3f1522363272783ac52fe029
+    type: git
+    sparse_paths:
+      - /LibSerialize.lua
+    link:
+    links:
+      -
+    scripts:
+      -
+  - repo: https://github.com/SafeteeWoW/LibDeflate
+    name: LibDeflate
+    rev: 31e40e654f8903788523f2c0f613b9c0e87f738f
+    type: git
+    sparse_paths:
+      - /LibDeflate.lua
+    link:
+    links:
+      -
+    scripts:
+      -
+  - repo: https://github.com/SamMousa/lua-eventsourcing
+    name: LibEventSourcing
+    rev: 23fe0fd46e9f3139382848f032919163ff8dc036
+    type: git
+    sparse_paths:
+      -
+    link:
+    links:
+      -
+    scripts:
+      -
+  - repo: https://github.com/ddumont/lib-st
+    name: LibScrollingTable
+    rev: 696e91d8af5ad51f9d0d42edceef9a58010c0077
+    type: git
+    sparse_paths:
+      - /Core.lua
+    link:
+    links:
+      -
+    scripts:
+      -
 
 default_group: ''
 groups:
